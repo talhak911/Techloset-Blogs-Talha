@@ -1,17 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-import { SliceZone } from "@prismicio/react";
-import * as prismic from "@prismicio/client";
-
+import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 
 type Params = { uid: string };
-
-/**
- * This page renders a Prismic Document dynamically based on the URL.
- */
 
 export async function generateMetadata({
   params,
@@ -20,43 +12,50 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { uid } = await params;
   const client = createClient();
-  const page = await client.getByUID("page", uid).catch(() => notFound());
+  const page = await client.getByUID("blog_post", uid).catch(() => notFound());
 
   return {
-    title: prismic.asText(page.data.title),
-    description: page.data.meta_description,
-    openGraph: {
-      title: page.data.meta_title || undefined,
-      images: [
-        {
-          url: page.data.meta_image.url || "",
-        },
-      ],
-    },
+    title: page.data.blog_title,
+    description: page.data.summary,
   };
 }
 
 export default async function Page({ params }: { params: Promise<Params> }) {
   const { uid } = await params;
+  console.log("the uid is ", uid);
   const client = createClient();
-  const page = await client.getByUID("page", uid).catch(() => notFound());
-
-  return <SliceZone slices={page.data.slices} components={components} />;
+  const post = await client.getByUID("blog_post", uid).catch(() => notFound());
+  console.log(post);
+  return (
+    <article className="mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-100 dark:text-gray-900">
+      <div className="mx-auto w-full space-y-4 text-center">
+        <p className="text-xs font-semibold tracking-wider">#TechlosetBlog</p>
+        <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+          {post.data.blog_title}
+        </h1>
+        <p className="text-sm dark:text-gray-600">
+          by &nbsp;
+          <span className="underline dark:text-violet-600">
+            <span itemProp="name">{post.data.author}</span>
+          </span>
+          &nbsp; on &nbsp;
+          <time dateTime="2021-02-12 15:34:18-0200">
+            {post.data.publication_date}
+          </time>
+        </p>
+      </div>
+      <div className="dark:text-gray-800">
+        <PrismicRichText field={post.data.content} />
+      </div>
+    </article>
+  );
 }
 
 export async function generateStaticParams() {
   const client = createClient();
+  const pages = await client.getAllByType("blog_post");
+  console.log("All the pages are ", pages);
 
-  /**
-   * Query all Documents from the API, except the homepage.
-   */
-  const pages = await client.getAllByType("page", {
-    predicates: [prismic.filter.not("my.page.uid", "home")],
-  });
-
-  /**
-   * Define a path for every Document.
-   */
   return pages.map((page) => {
     return { uid: page.uid };
   });
