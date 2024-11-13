@@ -9,8 +9,8 @@ function BlogCard({ post }: { post: BlogPostDocument }) {
           src={post.data.image.url || ""}
           alt="Card img"
           className="h-48 w-full object-cover object-center"
-          width={2}
-          height={3}
+          width={1000}
+          height={1000}
         />
         <div className="flex flex-grow">
           <div className="triangle" />
@@ -34,12 +34,12 @@ function BlogCard({ post }: { post: BlogPostDocument }) {
               <p className="mb-4">{post.data.summary}</p>
             </div>
             <div>
-              <a
-                href="#"
+              <PrismicNextLink
+                href={post.uid}
                 className="mt-2 inline-block border-b border-transparent pb-1 text-base font-black uppercase text-blue-600 hover:border-blue-600"
               >
                 Read More -&gt;
-              </a>
+              </PrismicNextLink>
             </div>
           </div>
         </div>
