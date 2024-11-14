@@ -22,10 +22,8 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<Params> }) {
   const { uid } = await params;
-  console.log("the uid is ", uid);
   const client = createClient();
   const post = await client.getByUID("blog_post", uid).catch(() => notFound());
-  console.log(post);
   return (
     <article className="mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-100 dark:text-gray-900">
       <div className="mx-auto w-full space-y-4 text-center">
@@ -63,8 +61,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 export async function generateStaticParams() {
   const client = createClient();
   const pages = await client.getAllByType("blog_post");
-  console.log("All the pages are ", pages);
-
   return pages.map((page) => {
     return { uid: page.uid };
   });
