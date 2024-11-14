@@ -6,12 +6,17 @@ function BlogCard({ post }: { post: BlogPostDocument }) {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] gap-2 rounded-md border border-gray-300 bg-white px-6 py-4 shadow-lg">
       <div className="relative h-60 w-full">
-        <Image
-          src={post.data.image.url || ""}
-          alt="Card img"
-          className="h-32 w-32 object-cover"
-          fill
-        />
+        {post.data.image.url ? (
+          <Image
+            src={post.data.image.url}
+            alt="Card img"
+            className="h-32 w-32 object-cover"
+            fill
+            sizes="h-60 w-full"
+          />
+        ) : (
+          <p>No Image</p>
+        )}
       </div>
       <div className="space-y-2">
         <div className="text-sm text-gray-500">
