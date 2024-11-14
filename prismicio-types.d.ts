@@ -91,7 +91,7 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = BlogCardSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice = RichTextSlice;
 
 /**
  * Content for Page documents
@@ -166,36 +166,6 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = BlogPostDocument | PageDocument;
 
 /**
- * Default variation for BlogCard Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BlogCardSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *BlogCard*
- */
-type BlogCardSliceVariation = BlogCardSliceDefault;
-
-/**
- * BlogCard Shared Slice
- *
- * - **API ID**: `blog_card`
- * - **Description**: BlogCard
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type BlogCardSlice = prismic.SharedSlice<
-  "blog_card",
-  BlogCardSliceVariation
->;
-
-/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -267,9 +237,6 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      BlogCardSlice,
-      BlogCardSliceVariation,
-      BlogCardSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
