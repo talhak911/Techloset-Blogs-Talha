@@ -51,6 +51,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             ),
             heading3: ({ children }) => <h2 className="pt-2">{children}</h2>,
             paragraph: ({ children }) => <p className="py-3"> {children}</p>,
+            list: ({ children }) => (
+              <ul className=" list-disc space-y-3">
+                {children.map((item) => (
+                  item
+                ))}
+              </ul>
+            ),
           }}
         />
       </div>
