@@ -45,7 +45,16 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         </p>
       </div>
       <div className="dark:text-gray-800">
-        <PrismicRichText field={post.data.content} />
+        <PrismicRichText
+          field={post.data.content}
+          components={{
+            heading2: ({ children }) => (
+              <h2 className="pt-2 text-2xl">{children}</h2>
+            ),
+            heading3: ({ children }) => <h2 className="pt-2">{children}</h2>,
+            paragraph: ({ children }) => <p className="py-3"> {children}</p>,
+          }}
+        />
       </div>
     </article>
   );
