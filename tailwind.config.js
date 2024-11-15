@@ -22,6 +22,7 @@ module.exports = {
         linkedInBlue: "#2867b2",
         twitterBlue: "#1da1f2",
         bgLightBlue: "#e2e7fd",
+        lightGrey:'#636262'
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],

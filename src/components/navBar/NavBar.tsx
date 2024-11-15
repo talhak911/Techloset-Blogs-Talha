@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Contact", link: "/" },
 ];
 
-function Header() {
+function NavBar() {
   const menuRef = useRef<HTMLButtonElement>(null);
 
   function toggleMenu() {
@@ -49,4 +49,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavBar;
