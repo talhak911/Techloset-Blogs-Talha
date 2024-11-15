@@ -23,10 +23,10 @@ export default async function Index() {
   const blogs = await client.getAllByType("blog_post");
   return (
     <div className="bg-bgLightBlue">
-      <HomeHeader/>
-      <div className="p-[30px] md:p-[60px]">
-        <h1 className="group relative justify-self-center md:justify-self-start text-2xl text-center md:text-4xl  font-medium">
-          <span className="border-orangeMain absolute -bottom-1 right-0 w-5/12 transform border-b-2 duration-500 ease-in group-hover:w-full"/>
+      <HomeHeader />
+      <div className="flex flex-col items-center p-[30px] md:items-start md:p-[60px]">
+        <h1 className="group relative text-2xl font-medium md:text-4xl">
+          <span className="border-orangeMain absolute -bottom-1 right-0 w-5/12 transform border-b-2 duration-500 ease-in group-hover:w-full" />
           Latest Posts
         </h1>
         <div className="grid gap-[24px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
