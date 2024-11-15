@@ -24,7 +24,7 @@ export default async function Index() {
   const blogs = await client.getAllByType("blog_post");
   return (
     <div>
-      <div className="h-[256px] w-full bg-red-500 text-white md:h-[230px]">
+      <div className="bg-custom-gradient bg-custom-size h-[256px] w-full object-contain text-white md:h-[230px]">
         <div className="flex flex-col px-[30px] md:flex-row md:justify-between md:px-[60px] md:pt-[120px]">
           <div>
             <h1 className="pt-[20px] text-[25px] font-semibold md:pt-0 md:text-[38px]">

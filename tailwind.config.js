@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  safelist:[
-    'bg-githubBlack',
-    'bg-instaPink',
-    'bg-facebookBlue',
-    'bg-linkedInBlue',
-    'bg-twitterBlue',
+  safelist: [
+    "bg-githubBlack",
+    "bg-instaPink",
+    "bg-facebookBlue",
+    "bg-linkedInBlue",
+    "bg-twitterBlue",
   ],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,14 +14,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        orangeMain:"#d73e0f",
-        githubBlack:"#161614",
-        instaPink:"#e1306c",
-        facebookBlue:"#4267b2",
-        linkedInBlue:"#2867b2",
-        twitterBlue:"#1da1f2",
-        bgLightBlue:'#e2e7fd'
+      colors: {
+        orangeMain: "#d73e0f",
+        githubBlack: "#161614",
+        instaPink: "#e1306c",
+        facebookBlue: "#4267b2",
+        linkedInBlue: "#2867b2",
+        twitterBlue: "#1da1f2",
+        bgLightBlue: "#e2e7fd",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],
@@ -48,6 +48,12 @@ module.exports = {
           "50%": { transform: "rotateY(180deg)" },
           "100%": { transform: "rotateY(0deg)" },
         },
+      },
+      backgroundImage: {
+        "custom-gradient": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%), url('/assets/images/bgImage.webp')`,
+      },
+      backgroundSize: {
+        "custom-size": "100% 450px",
       },
     },
   },
