@@ -22,7 +22,8 @@ module.exports = {
         linkedInBlue: "#2867b2",
         twitterBlue: "#1da1f2",
         bgLightBlue: "#e2e7fd",
-        lightGrey:'#636262'
+        lightGrey: "#636262",
+        deepBlue: "#00004f",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],
@@ -51,7 +52,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "custom-gradient": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%), url('/assets/images/bgImage.webp')`,
+        "custom-gradient-blog": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%), url('/assets/images/bgImage.webp')`,
+        "custom-gradient": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%)`
       },
       backgroundSize: {
         "custom-size": "100% 450px",

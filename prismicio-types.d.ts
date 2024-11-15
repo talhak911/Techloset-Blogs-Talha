@@ -73,6 +73,17 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   publication_date: prismic.DateField;
+
+  /**
+   * category field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Tech & News
+   * - **API ID Path**: blog_post.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
 }
 
 /**
