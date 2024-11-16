@@ -1,15 +1,20 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
+import Image from "next/image";
 import BlogHeader from "@/components/blogHeader/BlogHeader";
-
-type Params = { uid: string };
+import { SOCIAL_ICONS_BLOG } from "@/constants/constants";
+import SocialMediaLinks from "@/components/socialMediaLinks/SocialMediaLinks";
+import { BlogPageParams } from "@/types/types";
+import LatestPosts from "@/components/lastestPosts/LatestPosts";
+import { components } from "@/slices";
+import { richTextcomponents } from "@/slices/RichText";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params>;
+  params: Promise<BlogPageParams>;
 }): Promise<Metadata> {
   const { uid } = await params;
   const client = createClient();
@@ -21,48 +26,57 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: Promise<Params> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<BlogPageParams>;
+}) {
   const { uid } = await params;
   const client = createClient();
   const post = await client.getByUID("blog_post", uid).catch(() => notFound());
   return (
     <div>
       <BlogHeader post={post} />
-      <article className="mx-auto max-w-2xl space-y-12 px-6 py-24 dark:bg-gray-100 dark:text-gray-900">
-        <div className="mx-auto w-full space-y-4 text-center">
-          <p className="text-xs font-semibold tracking-wider">#TechlosetBlog</p>
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-            {post.data.blog_title}
-          </h1>
-          <p className="text-sm dark:text-gray-600">
-            by &nbsp;
-            <span className="underline dark:text-violet-600">
-              <span itemProp="name">{post.data.author}</span>
-            </span>
-            &nbsp; on &nbsp;
-            <time dateTime="2021-02-12 15:34:18-0200">
-              {post.data.publication_date}
-            </time>
-          </p>
+      <div className="flex bg-white px-[30px] pt-[60px] md:pl-[40px] md:pr-[50px]">
+        <div className="sticky top-0 flex h-screen flex-col justify-center">
+          <div className="hidden flex-col gap-4 lg:flex">
+            {SOCIAL_ICONS_BLOG.map((item, index) => (
+              <SocialMediaLinks
+                key={index}
+                Icon={item.Icon}
+                bgAfter={item.bgAfter}
+                link={item.link}
+                bgBefore="orangeMain"
+                iconColorBefore="white"
+              />
+            ))}
+          </div>
         </div>
-        <div className="dark:text-gray-800">
-          <PrismicRichText
-            field={post.data.content}
-            components={{
-              heading2: ({ children }) => (
-                <h2 className="pt-2 text-2xl">{children}</h2>
-              ),
-              heading3: ({ children }) => <h2 className="pt-2">{children}</h2>,
-              paragraph: ({ children }) => <p className="py-3"> {children}</p>,
-              list: ({ children }) => (
-                <ul className="list-disc space-y-3">
-                  {children.map((item) => item)}
-                </ul>
-              ),
-            }}
-          />
+        <article className="px-0 md:px-[80px]">
+          {post.data.image.url && (
+            <div className="relative w-full">
+              <Image
+                src={post.data.image.url || ""}
+                className="object-contain"
+                alt={post.data.image.alt || "Blog Image"}
+                width={post.data.image.dimensions?.width}
+                height={post.data.image.dimensions?.height}
+                layout="intrinsic"
+              />
+            </div>
+          )}
+          <div>
+            <PrismicRichText
+              field={post.data.content}
+              components={richTextcomponents}
+            />
+          </div>
+          <SliceZone slices={post.data.slices} components={components} />
+        </article>
+        <div className="sticky top-28 hidden h-full w-full flex-col lg:flex">
+          <LatestPosts />
         </div>
-      </article>
+      </div>
     </div>
   );
 }

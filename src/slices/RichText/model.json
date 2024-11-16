@@ -11,14 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "RichText",
       "primary": {
-        "content": {
+        "rich_text": {
           "type": "StructuredText",
           "config": {
-            "label": "Content",
-            "placeholder": "Lorem ipsum...",
+            "label": "RichText",
+            "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,embed,list-item",
-            "labels": ["codespan"]
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },

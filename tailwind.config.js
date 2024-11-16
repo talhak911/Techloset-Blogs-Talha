@@ -6,6 +6,7 @@ module.exports = {
     "bg-facebookBlue",
     "bg-linkedInBlue",
     "bg-twitterBlue",
+    "text-orangeMain"
   ],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -23,7 +24,10 @@ module.exports = {
         twitterBlue: "#1da1f2",
         bgLightBlue: "#e2e7fd",
         lightGrey: "#636262",
+        grey:"#424142",
+        blue:"#5333ed",
         deepBlue: "#00004f",
+        greyText:"#6e7076"
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],

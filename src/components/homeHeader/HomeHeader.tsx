@@ -22,6 +22,8 @@ function HomeHeader() {
                 Icon={item.Icon}
                 bgAfter={item.bgAfter}
                 link={item.link}
+                bgBefore="white"
+                iconColorBefore="orangeMain"
               />
             ))}
           </div>
