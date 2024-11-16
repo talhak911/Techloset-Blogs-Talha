@@ -5,7 +5,7 @@ function BlogHeader({ post }: { post: BlogPostDocument }) {
   return (
     <div className="relative flex w-full flex-col items-center bg-custom-gradient bg-custom-size object-contain px-[30px] text-white lg:px-[60px]">
       <Image
-        src={post.data.image.url || ""}
+        src={post.data.image.url || "/assets/images/bgImage.webp"} 
         alt=""
         fill
         className="-z-50 object-cover"
