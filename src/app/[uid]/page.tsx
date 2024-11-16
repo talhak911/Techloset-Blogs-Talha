@@ -34,10 +34,13 @@ export default async function Page({
   const { uid } = await params;
   const client = createClient();
   const post = await client.getByUID("blog_post", uid).catch(() => notFound());
+  const latestPosts = await client.getAllByType("blog_post", {
+    orderings: { field: "first_publication_date", direction: "desc" },
+  });
   return (
     <div>
       <BlogHeader post={post} />
-      <div className="flex bg-white px-[30px] pt-[60px] md:pl-[40px] md:pr-[50px]">
+      <div className="flex bg-white px-[30px] pb-[30px] pt-[60px] md:py-[60px] md:pl-[40px] md:pr-[50px]">
         <div className="sticky top-0 flex h-screen flex-col justify-center">
           <div className="hidden flex-col gap-4 lg:flex">
             {SOCIAL_ICONS_BLOG.map((item, index) => (
@@ -74,8 +77,11 @@ export default async function Page({
           <SliceZone slices={post.data.slices} components={components} />
         </article>
         <div className="sticky top-28 hidden h-full w-full flex-col lg:flex">
-          <LatestPosts />
+          <LatestPosts posts={latestPosts} />
         </div>
+      </div>
+      <div className="block px-[30px] lg:hidden pb-[60px]">
+        <LatestPosts posts={latestPosts} />
       </div>
     </div>
   );

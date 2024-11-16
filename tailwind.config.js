@@ -15,6 +15,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens:{
+        'xsm':'425px'
+      },
       colors: {
         orangeMain: "#d73e0f",
         githubBlack: "#161614",
@@ -27,7 +30,8 @@ module.exports = {
         grey:"#424142",
         blue:"#5333ed",
         deepBlue: "#00004f",
-        greyText:"#6e7076"
+        greyText:"#6e7076",
+        silver:"#e6e6e6"
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],
