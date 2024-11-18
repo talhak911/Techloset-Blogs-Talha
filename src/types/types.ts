@@ -9,8 +9,3 @@ export type SocialMediaIconType = {
 };
 export type BlogPageParams = { uid: string };
 export type PostsType = { posts: BlogPostDocument<string>[] };
-export type LatestPostsCardProps = {
-  imageUrl: string;
-  title: string;
-  date: string;
-};

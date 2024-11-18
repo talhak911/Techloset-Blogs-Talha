@@ -80,7 +80,7 @@ export default async function Page({
           <LatestPosts posts={latestPosts} />
         </div>
       </div>
-      <div className="block px-[30px] lg:hidden pb-[60px]">
+      <div className="block bg-white px-[30px] pb-[60px] lg:hidden">
         <LatestPosts posts={latestPosts} />
       </div>
     </div>

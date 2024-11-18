@@ -24,12 +24,7 @@ function LatestPosts({ posts }: PostsType) {
       <p className="my-5 text-[20px] text-grey">Latest Posts</p>
       {displayedPosts.length > 0 ? (
         displayedPosts.map((post, index) => (
-          <LatestPostCard
-            key={index}
-            date={new Date(post.first_publication_date).toLocaleDateString()}
-            imageUrl={post.data.image.url || ""}
-            title={post.data.blog_title || "No Title"}
-          />
+          <LatestPostCard key={index} post={post} />
         ))
       ) : (
         <p className="text-greyText">No posts found.</p>
