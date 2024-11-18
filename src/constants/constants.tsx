@@ -67,3 +67,12 @@ export const SOCIAL_ICONS_BLOG: SocialMediaIconType[] = [
     bgBefore: COLORS.orangeMain,
   },
 ];
+
+export const NAV_LINKS = [
+  { label: "Cases", link: "/" },
+  { label: "Services", link: "/" },
+  { label: "About", link: "/" },
+  { label: "Career", link: "/" },
+  { label: "Blog", link: "/" },
+  { label: "Contact", link: "/" },
+];
