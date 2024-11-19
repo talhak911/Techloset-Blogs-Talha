@@ -1,15 +1,13 @@
 import Image from "next/image";
-import { BlogPostDocument } from "../../../prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
+import { LatestPostCardProps } from "@/types/types";
 
 function LatestPostCard({
-  post: {
-    uid,
-    data: { blog_title, image, publication_date },
-  },
-}: {
-  post: BlogPostDocument;
-}) {
+  uid,
+  blogTitle,
+  imageUrl,
+  publicationDate,
+}: LatestPostCardProps) {
   return (
     <PrismicNextLink
       href={`/${uid}`}
@@ -17,16 +15,16 @@ function LatestPostCard({
     >
       <div className="relative col-span-4 h-full w-full">
         <Image
-          src={image.url || "/assets/images/bgImage.webp"}
+          src={imageUrl || "/assets/images/bgImage.webp"}
           fill
-          alt={blog_title || "blog image"}
+          alt={blogTitle || "blog image"}
           className="object-cover"
         />
       </div>
       <div className="col-span-6">
-        <p className="w-full text-[16px] font-medium">{blog_title}</p>
+        <p className="w-full text-[16px] font-medium">{blogTitle}</p>
         <span className="pt-[5px] text-[13px] font-medium text-orangeMain">
-          {publication_date}
+          {publicationDate}
         </span>
       </div>
     </PrismicNextLink>

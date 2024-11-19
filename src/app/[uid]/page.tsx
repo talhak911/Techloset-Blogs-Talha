@@ -39,7 +39,13 @@ export default async function Page({
   });
   return (
     <div>
-      <BlogHeader post={post} />
+      <BlogHeader
+        author={post.data.author}
+        blogTitle={post.data.blog_title}
+        category={post.data.category}
+        imageUrl={post.data.image.url}
+        publicationDate={post.data.publication_date}
+      />
       <div className="flex bg-white px-[30px] pb-[30px] pt-[60px] md:py-[60px] md:pl-[40px] md:pr-[50px]">
         <div className="sticky top-0 flex h-screen flex-col justify-center">
           <div className="hidden flex-col gap-4 lg:flex">
@@ -56,18 +62,16 @@ export default async function Page({
           </div>
         </div>
         <article className="px-0 md:px-[80px]">
-          {post.data.image.url && (
-            <div className="relative w-full">
-              <Image
-                src={post.data.image.url || ""}
-                className="object-contain"
-                alt={post.data.image.alt || "Blog Image"}
-                width={post.data.image.dimensions?.width}
-                height={post.data.image.dimensions?.height}
-                layout="intrinsic"
-              />
-            </div>
-          )}
+          <div className="relative w-full">
+            <Image
+              src={post.data.image.url || "/assets/images/bgImage.webp"}
+              className="object-contain"
+              alt={post.data.image.alt || "Blog Image"}
+              width={post.data.image.dimensions?.width || 2000}
+              height={post.data.image.dimensions?.height || 800}
+              layout="intrinsic"
+            />
+          </div>
           <div>
             <PrismicRichText
               field={post.data.content}
