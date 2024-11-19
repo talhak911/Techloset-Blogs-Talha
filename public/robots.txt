@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://techloset-blogs-talha.vercel.app/
+
+# Sitemaps
+Sitemap: https://techloset-blogs-talha.vercel.app/sitemap.xml
