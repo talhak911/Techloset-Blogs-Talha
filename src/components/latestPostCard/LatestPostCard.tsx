@@ -13,7 +13,7 @@ function LatestPostCard({
       href={`/${uid}`}
       className="mb-[10px] mt-[20px] grid grid-cols-10 gap-[20px]"
     >
-      <div className="relative col-span-4 h-full w-full">
+      <div className="relative col-span-4 h-[80px] w-full md:min-h-[200px] lg:h-[80px] lg:min-h-max">
         <Image
           src={imageUrl || "/assets/images/bgImage.webp"}
           fill

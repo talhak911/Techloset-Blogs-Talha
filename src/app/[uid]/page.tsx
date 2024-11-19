@@ -46,8 +46,8 @@ export default async function Page({
         imageUrl={post.data.image.url}
         publicationDate={post.data.publication_date}
       />
-      <div className="flex bg-white px-[30px] pb-[30px] pt-[60px] md:py-[60px] md:pl-[40px] md:pr-[50px]">
-        <div className="sticky top-0 flex h-screen flex-col justify-center">
+      <div className="flex w-full justify-center bg-white px-[30px] pb-[30px] pt-[60px] md:py-[60px] md:pl-[40px] md:pr-[50px]">
+        <div className="sticky top-0 flex max-h-screen flex-col justify-center">
           <div className="hidden flex-col gap-4 lg:flex">
             {SOCIAL_ICONS_BLOG.map((item, index) => (
               <SocialMediaLinks
@@ -61,15 +61,15 @@ export default async function Page({
             ))}
           </div>
         </div>
-        <article className="px-0 md:px-[80px]">
-          <div className="relative w-full">
+        <article className="px-0 md:px-[80px] w-10/12">
+          <div className="relative w-full ">
             <Image
               src={post.data.image.url || "/assets/images/bgImage.webp"}
               className="object-contain"
               alt={post.data.image.alt || "Blog Image"}
               width={post.data.image.dimensions?.width || 2000}
               height={post.data.image.dimensions?.height || 800}
-              layout="intrinsic"
+              // layout="intrinsic"
             />
           </div>
           <div>
@@ -80,7 +80,7 @@ export default async function Page({
           </div>
           <SliceZone slices={post.data.slices} components={components} />
         </article>
-        <div className="sticky top-28 hidden h-full w-full flex-col lg:flex">
+        <div className="sticky top-28 hidden h-full  flex-col lg:flex lg:w-1/4">
           <LatestPosts posts={latestPosts} />
         </div>
       </div>

@@ -10,7 +10,7 @@ function LatestPosts({ posts }: PostsType) {
   });
 
   return (
-    <div>
+    <div className="">
       <div className="flex h-[46px] w-full items-center rounded-full border-[1px] border-silver pl-4">
         <CiSearch color="grey" size={25} />
         <input
