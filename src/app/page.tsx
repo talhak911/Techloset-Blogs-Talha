@@ -29,7 +29,7 @@ export default async function Index() {
           <span className="absolute -bottom-1 right-0 w-5/12 transform border-b-2 border-orangeMain duration-500 ease-in group-hover:w-full" />
           Latest Posts
         </h1>
-        <div className="grid gap-[24px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+        <div className="grid gap-[24px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
           {blogs.map((post) => (
             <BlogCard
               key={post.uid}

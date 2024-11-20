@@ -8,7 +8,7 @@ function BlogCard({ blogTitle, summary, uid, imageUrl }: BlogCardProps) {
       href={uid}
       className="grid grid-rows-[auto_1fr_auto] rounded-md pt-[30px] md:pt-[50px]"
     >
-      <div className="relative h-60 w-full">
+      <div className="relative h-[190px] sm:h-[300px] w-full">
         <Image
           src={imageUrl || "/assets/images/bgImage.webp"}
           alt="Card img"
