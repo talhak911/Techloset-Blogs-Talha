@@ -22,14 +22,14 @@ export default async function Index() {
   const client = createClient();
   const blogs = await client.getAllByType("blog_post");
   return (
-    <div className="bg-bgLightBlue">
+    <div className="flex min-h-screen flex-grow flex-col bg-bgLightBlue">
       <HomeHeader />
       <div className="flex flex-col items-center p-[30px] md:items-start md:p-[60px]">
         <h1 className="group relative text-2xl font-medium md:text-4xl">
           <span className="absolute -bottom-1 right-0 w-5/12 transform border-b-2 border-orangeMain duration-500 ease-in group-hover:w-full" />
           Latest Posts
         </h1>
-        <div className="grid gap-[24px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
+        <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((post) => (
             <BlogCard
               key={post.uid}

@@ -12,12 +12,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body className="min-h-screen bg-slate-50 font-poppins">
+      <body className="flex min-h-screen flex-col font-poppins">
         <Navbar />
-        <div className="mt-[80px]">{children}</div>
+        <main className="mt-[80px] flex-grow">{children}</main>
         <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
-      <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
 }
