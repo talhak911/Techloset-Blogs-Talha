@@ -44,23 +44,3 @@ export default async function Index() {
     </div>
   );
 }
-
-// export async function generateSitemaps() {
-//   const client = createClient();
-//   const siteUrl = "https://techloset-blogs-talha.vercel.app/";
-
-//   const pages = await client.getAllByType("page");
-//   const blogs = await client.getAllByType("blog_post");
-
-//   const pagesUrls = pages.map((page) => ({
-//     loc: `${siteUrl}/${page.uid}`,
-//     lastmod: page.last_publication_date || new Date().toISOString(),
-//   }));
-
-//   const blogsUrls = blogs.map((blog) => ({
-//     loc: `${siteUrl}/${blog.uid}`,
-//     lastmod: blog.last_publication_date || new Date().toISOString(),
-//   }));
-
-//   return [...pagesUrls, ...blogsUrls];
-// }
