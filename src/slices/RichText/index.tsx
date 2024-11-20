@@ -23,7 +23,6 @@ export const richTextcomponents: JSXMapSerializer = {
         width={node.dimensions?.width}
         height={node.dimensions?.height}
         className="object-contain"
-        layout="intrinsic"
       />
     </div>
   ),
@@ -35,16 +34,16 @@ export const richTextcomponents: JSXMapSerializer = {
   ),
   heading3: ({ children }) => <h2 className="pt-2">{children}</h2>,
   paragraph: ({ children }) => (
-    <p className="text-greyText py-4"> {children}</p>
+    <p className="py-4 text-greyText"> {children}</p>
   ),
   list: ({ children }) => (
     <ul className="list-disc space-y-3 font-light">
       {children.map((item) => item)}
     </ul>
   ),
-  listItem: ({ text }) => <li className="text-greyText font-light">{text}</li>,
+  listItem: ({ text }) => <li className="font-light text-greyText">{text}</li>,
   oList: ({ children }) => (
-    <ul className="text-greyText list-decimal pl-[40px] font-light">
+    <ul className="list-decimal pl-[40px] font-light text-greyText">
       {children.map((item) => item)}
     </ul>
   ),
