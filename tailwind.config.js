@@ -6,7 +6,7 @@ module.exports = {
     "bg-facebookBlue",
     "bg-linkedInBlue",
     "bg-twitterBlue",
-    "text-orangeMain"
+    "text-orangeMain",
   ],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,8 +15,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens:{
-        'xsm':'425px'
+      screens: {
+        xsm: "425px",
       },
       colors: {
         orangeMain: "#d73e0f",
@@ -27,11 +27,11 @@ module.exports = {
         twitterBlue: "#1da1f2",
         bgLightBlue: "#e2e7fd",
         lightGrey: "#636262",
-        grey:"#424142",
-        blue:"#5333ed",
+        grey: "#424142",
+        blue: "#5333ed",
         deepBlue: "#00004f",
-        greyText:"#6e7076",
-        silver:"#e6e6e6"
+        greyText: "#6e7076",
+        silver: "#e6e6e6",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],
@@ -60,8 +60,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "custom-gradient-blog": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%), url('/assets/images/bgImage.webp')`,
-        "custom-gradient": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%)`
+        "custom-gradient": `linear-gradient(117.17deg, rgba(0, 0, 79, 0.93), rgba(0, 0, 79, 0.89) 19.37%, rgba(0, 0, 79, 0.8) 37.02%, rgba(0, 0, 101, 0.85) 55.52%, rgba(54, 83, 248, 0.66) 99.04%)`,
       },
       backgroundSize: {
         "custom-size": "100% 450px",
