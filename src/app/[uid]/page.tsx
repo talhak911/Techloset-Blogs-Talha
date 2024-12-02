@@ -10,6 +10,8 @@ import { BlogPageParams } from "@/types/types";
 import LatestPosts from "@/components/lastestPosts/LatestPosts";
 import { components } from "@/slices";
 import { richTextcomponents } from "@/slices/RichText";
+import { isFilled } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 
 export async function generateMetadata({
   params,
@@ -63,13 +65,21 @@ export default async function Page({
         </div>
         <article className="w-10/12 px-0 lg:px-[80px]">
           <div className="relative flex w-full justify-center">
-            <Image
-              src={post.data.image.url || "/assets/images/bgImage.webp"}
-              className="object-contain"
-              alt={post.data.image.alt || "Blog Image"}
-              width={post.data.image.dimensions?.width || 2000}
-              height={post.data.image.dimensions?.height || 800}
-            />
+            {isFilled.image(post.data.image) ? (
+              <PrismicNextImage
+                className="object-contain"
+                field={post.data.image}
+                fallbackAlt=""
+              />
+            ) : (
+              <Image
+                src={"/assets/images/bgImage.webp"}
+                className="object-contain"
+                alt={post.data.image.alt || "Blog Image"}
+                width={2000}
+                height={800}
+              />
+            )}
           </div>
           <div>
             <PrismicRichText
