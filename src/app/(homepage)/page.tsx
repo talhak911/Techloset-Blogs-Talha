@@ -3,6 +3,7 @@ import { createClient } from "@/prismicio";
 import BlogCard from "@/components/blogCard/BlogCard";
 import { asText } from "@prismicio/client";
 import HomeHeader from "@/components/homeHeader/HomeHeader";
+import AnimatedContent from "./AnimatedContent";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -25,10 +26,7 @@ export default async function Index() {
     <div>
       <HomeHeader />
       <div className="flex flex-col items-center bg-bgLightBlue p-[30px] md:items-start md:p-[60px]">
-        <h1 className="group relative text-2xl font-medium md:text-4xl">
-          <span className="absolute -bottom-1 right-0 w-5/12 transform border-b-2 border-orangeMain duration-500 ease-in group-hover:w-full" />
-          Latest Posts
-        </h1>
+        <AnimatedContent />
         <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((post) => (
             <BlogCard
