@@ -19,7 +19,6 @@ function AnimatedContent() {
             filter: "brightness(2)",
             opacity: 1,
             duration: 0.5,
-            ease: "power2.in",
           },
           {
             filter: "brightness(1)",

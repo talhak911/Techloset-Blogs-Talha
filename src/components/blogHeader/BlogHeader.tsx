@@ -1,5 +1,6 @@
 import { BlogHeaderProps } from "@/types/types";
 import Image from "next/image";
+import AnimatedContent from "./AnimatedContent";
 
 function BlogHeader({
   imageUrl,
@@ -21,9 +22,7 @@ function BlogHeader({
           {category}
         </span>
       )}
-      <h1 className="mt-[10px] text-center text-[25px] xsm:text-[30px] md:mt-[30px] md:text-[36px] lg:text-[38px]">
-        {blogTitle ?? "No Title"}
-      </h1>
+      <AnimatedContent title={blogTitle ?? "No Title"}/>
       {author && (
         <span className="mb-[30px] mt-[20px] flex flex-col items-center gap-2 text-[14px] md:mb-[60px] md:mt-[30px] md:flex-row">
           By {author}
